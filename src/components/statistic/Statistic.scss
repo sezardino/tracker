@@ -1,0 +1,24 @@
+.statistic {
+  --column-count: 2;
+
+  @include media-up(lg) {
+    --column-count: 3;
+  }
+
+  @include media-up(xl) {
+    margin-top: 0;
+  }
+
+  &__title {
+    @include visually-hidden;
+  }
+
+  &__list {
+    display: grid;
+    gap: 24px;
+
+    @include media-up(md) {
+      grid-template-columns: repeat(var(--column-count), 1fr);
+    }
+  }
+}

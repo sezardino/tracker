@@ -1,24 +1,22 @@
 <template>
-  <ul className="statistic">
-    <li className="statistic__item">
-      <div className="statistic__body">
-        <header className="statistic__header">
-          <h3 className="statistic__title">Work</h3>
-          <button className="statistic__more">more</button>
-        </header>
-        <div className="statistic__count">
-          <p className="statistic__current">32hrs</p>
-          <p className="statistic__last">Last Week - 36hrs</p>
-        </div>
-      </div>
-    </li>
-  </ul>
+  <section class="statistic">
+    <h2 class="statistic__title">Statistic</h2>
+    <ul className="statistic__list">
+      <template v-for="item in 6" :key="item">
+        <StatisticItem />
+      </template>
+    </ul>
+  </section>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import StatisticItem from "@/components/statistic-item";
 
 export default defineComponent({
   name: "Statistic",
+  components: { StatisticItem },
 });
 </script>
+
+<style lang="scss" scoped src="./Statistic.scss"></style>

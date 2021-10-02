@@ -1,0 +1,29 @@
+.filters {
+  padding: 10px;
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    @include media-up(xl) {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    @include flex-center;
+
+    width: 100%;
+  }
+
+  &__item--active {
+    .filters__button {
+      color: var(--color-primary);
+    }
+  }
+
+  &__button {
+    padding: 10px;
+
+    color: var(--color-desaturated-blue);
+  }
+}

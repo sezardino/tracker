@@ -1,0 +1,71 @@
+$base-font: "Rubik";
+
+$font-weight-light: 300;
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+
+$font-size-body: 1.6rem;
+$font-size-copy: 1.1rem;
+
+$font-size-heading-1: 2.4rem;
+$font-size-heading-2: 1.8rem;
+
+$font-size-filter: 2rem;
+$font-size-count-current: 2.8rem;
+$font-size-count-last: 1.2rem;
+
+$font-line-height-body: 2.1rem;
+$font-line-height-copy: 1.4rem;
+
+$font-line-height-heading-1: 2.7rem;
+$font-line-height-heading-2: 2.1rem;
+
+$font-line-height-filter: 2.3rem;
+$font-line-height-count-current: 3.1rem;
+$font-line-height-count-last: 1.5rem;
+
+@mixin font-body {
+  font-size: $font-size-body;
+  font-weight: $font-weight-regular;
+}
+
+@mixin font-heading-1 {
+  font-size: $font-size-heading-1;
+  line-height: $font-line-height-heading-1;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-heading-2 {
+  font-size: $font-size-heading-2;
+  line-height: $font-line-height-heading-2;
+  font-weight: $font-weight-medium;
+}
+
+@mixin font-copy {
+  font-size: $font-size-copy;
+  line-height: $font-line-height-copy;
+  font-weight: $font-weight-light;
+  color: var(--color-primary);
+}
+
+@mixin font-count-current {
+  font-size: $font-size-count-current;
+  line-height: $font-size-count-current;
+  font-weight: $font-weight-light;
+  color: var(--color-primary);
+}
+
+@mixin font-count-last {
+  font-size: $font-size-count-last;
+  line-height: $font-line-height-count-last;
+  font-weight: $font-weight-light;
+  color: var(--color-primary);
+}
+
+@mixin font-uppercase {
+  text-transform: uppercase;
+}
+
+@mixin font-center {
+  text-align: center;
+}

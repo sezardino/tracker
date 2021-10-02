@@ -1,0 +1,73 @@
+.statistic-item {
+  @include border-style(null, 15px);
+
+  background-position: top right 20px;
+  width: 100%;
+  padding-top: 40px;
+
+  &__body {
+    @include border-style(null, 15px);
+
+    background-color: var(--color-dark-blue);
+    padding: 24px;
+  }
+
+  &__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include font-heading-2;
+
+    color: var(--color-primary);
+  }
+
+  &__more {}
+
+  &__count {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include media-up(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+  }
+
+  &__current {
+    @include font-count-current;
+  }
+
+  &__last {
+    @include font-count-last;
+  }
+
+  &--work {
+    background-image: url('/images/icon-work.svg');
+  }
+
+  &--play {
+    background-image: url('/images/icon-play.svg');
+  }
+
+  &--study {
+    background-image: url('/images/icon-study.svg');
+  }
+
+  &--exercise {
+    background-image: url('/images/icon-exercise.svg');
+  }
+
+  &--social {
+    background-image: url('/images/icon-social.svg');
+  }
+
+  &--self {
+    background-image: url('/images/icon-self-care.svg');
+  }
+}

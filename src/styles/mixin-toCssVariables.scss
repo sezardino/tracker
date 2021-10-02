@@ -1,0 +1,13 @@
+@mixin toCssVariables($array, $prefix: null) {
+  @at-root {
+    html#{''} {
+      @each $name, $value in $array {
+        @if ($prefix) {
+          --#{$prefix}-#{$name}: #{$value};
+        } @else {
+          --#{$name}: #{$value};
+        }
+      }
+    }
+  }
+}

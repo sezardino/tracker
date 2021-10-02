@@ -1,0 +1,19 @@
+$blue: hsl(246, 80%, 60%);
+$darker-blue: hsl(226, 43%, 10%);
+$dark-blue: hsl(235, 46%, 20%);
+$light-blue: hsl(236, 100%, 87%);
+$desaturated-blue: hsl(235, 45%, 61%);
+$white: #ffffff;
+$light: #adadad;
+
+$color-keys: (
+  "primary": $white,
+  "secondary": $light,
+  "blue": $blue,
+  "darker-blue": $darker-blue,
+  "dark-blue": $dark-blue,
+  "light-blue": $light-blue,
+  "desaturated-blue": $desaturated-blue,
+);
+
+@include toCssVariables($color-keys, color);
