@@ -1,38 +1,61 @@
 <template>
   <component
     :is="as"
-    className="statistic-item statistic-item--work"
-    :style="{ backgroundColor: StatisticColors.WORK }"
+    :class="[
+      'statistic-item',
+      `statistic-item--${data.title.toLocaleLowerCase()}`,
+    ]"
+    :style="{ backgroundColor: data.color }"
   >
-    <div className="statistic-item__body">
-      <header className="statistic-item__header">
-        <h3 className="statistic-item__title">Work</h3>
-        <button className="statistic-item__more">more</button>
+    <div class="statistic-item__body">
+      <header class="statistic-item__header">
+        <h3 class="statistic-item__title">{{ data.title }}</h3>
+        <MoreButton class="statistic-item__more" />
       </header>
-      <div className="statistic-item__count">
-        <p className="statistic-item__current">32hrs</p>
-        <p className="statistic-item__last">Last Week - 36hrs</p>
+      <div class="statistic-item__count">
+        <p class="statistic-item__current">{{ current }} hrs</p>
+        <p class="statistic-item__last">Last - {{ previous }}hrs</p>
       </div>
     </div>
   </component>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { HtmlWrappers, StatisticColors } from "@/types/enums";
+import { computed, defineComponent, PropType } from "vue";
+import MoreButton from "@/components/more-button/MoreButton.vue";
+import { HtmlWrappers, IData } from "@/types";
 import { isInEnum } from "@/helpers/";
 
 export default defineComponent({
   name: "StatisticItem",
+  components: { MoreButton },
   props: {
     as: {
       type: String,
       default: HtmlWrappers.LI,
       validator: (value: HtmlWrappers) => isInEnum(value, HtmlWrappers),
     },
+    data: {
+      type: Object as PropType<IData>,
+      required: true,
+    },
+    activeFilter: {
+      type: String,
+      required: true,
+    },
   },
-  setup() {
-    return { StatisticColors };
+  setup(props) {
+    const current = computed(() => {
+      const { data, activeFilter } = props;
+      return data.timeframes[activeFilter].current;
+    });
+
+    const previous = computed(() => {
+      const { data, activeFilter } = props;
+      return data.timeframes[activeFilter].previous;
+    });
+
+    return { current, previous };
   },
 });
 </script>

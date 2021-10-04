@@ -1,0 +1,22 @@
+.more-button {
+  padding-top: 15px;
+  display: flex;
+  gap: 5px;
+  align-items: flex-end;
+
+  &:hover,
+  &:focus {
+    .more-button__item {
+      background-color: var(--color-primary);
+    }
+  }
+
+		&__item {
+      @include width-height(5);
+
+      display: flex;
+      background-color: var(--color-secondary);
+      transition: 0.3s background-color ease-in-out;
+      border-radius: 50%;
+    }
+}

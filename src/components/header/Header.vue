@@ -7,17 +7,34 @@
       </h1>
       <img src="/images/avatar.png" alt="jeremy" className="header__avatar" />
     </div>
-    <Filters class="header__filters" />
+    <Filters
+      class="header__filters"
+      :filters="filters"
+      :currentFilter="activeFilter"
+      @filterChange="changeFilterHandler"
+    />
   </header>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { computed, defineComponent } from "vue";
 import Filters from "@/components/filters";
+import { useStore } from "vuex";
 
 export default defineComponent({
   name: "Header",
   components: { Filters },
+  setup() {
+    const store = useStore();
+
+    const filters = computed(() => store.getters["tracker/tabs"]);
+    const activeFilter = computed(() => store.getters["tracker/currentTab"]);
+
+    const changeFilterHandler = (filter: string) =>
+      store.dispatch("tracker/changeTab", filter);
+
+    return { filters, activeFilter, changeFilterHandler };
+  },
 });
 </script>
 

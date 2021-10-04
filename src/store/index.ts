@@ -1,8 +1,7 @@
+import { tracker } from "./modules/tracker";
+import { IRootState } from "@/types";
 import { createStore } from "vuex";
 
-export default createStore({
-  state: {},
-  mutations: {},
-  actions: {},
-  modules: {},
+export default createStore<IRootState>({
+  modules: { tracker },
 });
